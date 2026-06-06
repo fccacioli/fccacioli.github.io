@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabiano Cacioli - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== LA TUA PALETTE DARK & ROSSO NEON ===== */
+        :root {
+            --sfondo: #050505; 
+            --testo-principale: #ffffff; 
+            --testo-secondario: #94a3b8; 
+            --rosso-neon: #ff003c; 
+            --sfondo-card: #0f172a;
+            --bordo-card: #1e293b;
+        }
+
+        body {
+            background-color: var(--sfondo);
+            color: var(--testo-principale);
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navigazione */
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--testo-principale);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            color: var(--rosso-neon);
+            text-shadow: 0 0 10px rgba(255, 0, 60, 0.6); 
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--testo-secondario);
+            margin-left: 40px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--rosso-neon);
+            text-shadow: 0 0 8px rgba(255, 0, 60, 0.5);
+        }
+
+        /* Sezione Hero (Presentazione) */
+        .sezione-principale {
+            width: 100%;
+            max-width: 1200px;
+            padding: 80px 40px 120px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            box-sizing: border-box;
+        }
+
+        .colonna-testo {
+            flex: 1;
+        }
+
+        .etichetta-lavoro {
+            color: var(--rosso-neon);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .colonna-testo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 70px;
+            font-weight: 900;
+            margin: 0 0 25px 0;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .colonna-testo p {
+            font-size: 16px;
+            color: var(--testo-secondario);
+            line-height: 1.8;
+            margin-bottom: 35px;
+            max-width: 95%;
+        }
+
+        /* Competenze */
+        .skills-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .skill-tag {
+            border: 1px solid var(--bordo-card);
+            background-color: var(--sfondo-card);
+            color: var(--testo-secondario);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--rosso-neon);
+            color: var(--rosso-neon);
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
+        }
+
+        /* Bottoni */
+        .gruppo-bottoni {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primario {
+            background-color: transparent;
+            color: var(--rosso-neon);
+            padding: 14px 28px;
+            text-decoration: none;
+            border: 2px solid var(--rosso-neon);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.15);
+        }
+
+        .btn-primario:hover {
+            background-color: var(--rosso-neon);
+            color: var(--sfondo);
+            box-shadow: 0 0 30px rgba(255, 0, 60, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondario {
+            background-color: transparent;
+            color: var(--testo-principale);
+            padding: 14px 10px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .btn-secondario:hover {
+            border-bottom: 2px solid var(--rosso-neon);
+            color: var(--rosso-neon);
+        }
+
+        /* Colonna Immagine */
+        .colonna-immagine {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .box-foto {
+            width: 400px;
+            height: 480px;
+            background-color: var(--sfondo-card);
+            border: 1px solid var(--bordo-card);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            transition: 0.5s;
+        }
+
+        .box-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 10px; 
+        }
+
+        .box-foto:hover {
+            border-color: var(--rosso-neon);
+            box-shadow: 0 0 40px rgba(255, 0, 60, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .decorazione-sfondo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--rosso-neon);
+            border-radius: 10px;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* ===== SEZIONE ABOUT ME ===== */
+        .sezione-about {
+            width: 100%;
+            max-width: 900px;
+            padding: 60px 40px;
+            box-sizing: border-box;
+            margin: 0 auto; 
+        }
+
+        .sezione-about h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: var(--testo-principale);
+            display: flex;
+            align-items: center;
+        }
+
+        .sezione-about h2::before {
+            content: "00.";
+            color: var(--rosso-neon);
+            font-size: 24px;
+            margin-right: 15px;
+            font-weight: 700;
+        }
+
+        .sezione-about p {
+            color: var(--testo-secondario);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: var(--testo-principale);
+            font-weight: 600;
+        }
+
+        /* ===== SEZIONE TIMELINE ===== */
+        .sezione-timeline {
+            width: 100%;
+            max-width: 900px;
+            padding: 40px 40px 80px 40px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .linea-timeline {
+            border-left: 2px solid var(--bordo-card);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .tappa-timeline {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .tappa-timeline::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--sfondo);
+            border: 2px solid var(--rosso-neon);
+            border-radius: 50%;
+        }
+
+        .data-timeline {
+            color: var(--rosso-neon);
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .titolo-timeline {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--testo-principale);
+            font-size: 20px;
+            margin: 0 0 10px 0;
+        }
+
+        .testo-timeline {
+            color: var(--testo-secondario);
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== SEZIONE PROGETTI ===== */
+        .sezione-progetti {
+            width: 100%;
+            max-width: 1200px;
+            padding: 60px 40px 60px 40px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .sezione-progetti h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 50px;
+            color: var(--testo-principale);
+            display: flex;
+            align-items: center;
+        }
+
+        .sezione-progetti h2::before {
+            content: "01.";
+            color: var(--rosso-neon);
+            font-size: 24px;
+            margin-right: 15px;
+            font-weight: 700;
+        }
+
+        .griglia-progetti {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card-progetto {
+            background-color: var(--sfondo-card);
+            border: 1px solid var(--bordo-card);
+            border-radius: 8px;
+            padding: 30px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-progetto:hover {
+            transform: translateY(-8px);
+            border-color: var(--rosso-neon);
+            box-shadow: 0 10px 30px rgba(255, 0, 60, 0.15);
+        }
+
+        .card-icona {
+            color: var(--rosso-neon);
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        .card-progetto h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin: 0 0 15px 0;
+            color: var(--testo-principale);
+        }
+
+        .card-progetto p {
+            color: var(--testo-secondario);
+            font-size: 15px;
+            line-height: 1.6;
+            flex-grow: 1; 
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: var(--rosso-neon);
+            flex-wrap: wrap;
+        }
+
+        .card-link {
+            color: var(--testo-principale);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .card-link:hover {
+            color: var(--rosso-neon);
+        }
+
+        /* ===== SEZIONE CONTATTI ===== */
+        .sezione-contatti {
+            width: 100%;
+            max-width: 700px;
+            padding: 80px 40px 120px 40px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .etichetta-contatti {
+            color: var(--rosso-neon);
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .sezione-contatti h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 55px;
+            font-weight: 900;
+            margin: 15px 0 30px 0;
+            color: var(--testo-principale);
+            letter-spacing: -1px;
+        }
+
+        .sezione-contatti p {
+            color: var(--testo-secondario);
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">Fabiano<span>.</span></a>
+        <div class="menu">
+            <a href="#about">About</a>
+            <a href="#progetti">Progetti</a>
+            <a href="#contatti">Contatti</a>
+        </div>
+    </nav>
+
+    <main class="sezione-principale">
+        
+        <div class="colonna-testo">
+            <span class="etichetta-lavoro">AI & Cybersecurity</span>
+            
+            <h1>Fabiano<br>Cacioli.</h1>
+            
+            <p>
+                Studente magistrale in Computer Engineering and Artificial Intelligence. 
+                Unisco una solida base analitica a competenze pratiche di sviluppo Full-Stack, con l'obiettivo di costruire architetture sicure e intelligenti.
+            </p>
+            
+            <div class="skills-container">
+                <div class="skill-tag">Python & C/C++</div>
+                <div class="skill-tag">Cybersecurity & Cryptography</div>
+                <div class="skill-tag">Machine Learning</div>
+                <div class="skill-tag">Linux & Git</div>
+            </div>
+
+            <div class="gruppo-bottoni">
+                <a href="CV_Fabiano_Cacioli.pdf" target="_blank" class="btn-primario">Scarica CV</a>
+                <a href="https://github.com/fccacioli" target="_blank" class="btn-secondario">GitHub</a>
+                <a href="https://www.linkedin.com/in/fabiano-cacioli-925259359" target="_blank" class="btn-secondario">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="colonna-immagine">
+            <div class="decorazione-sfondo"></div>
+            <div class="box-foto">
+                <img src="profilo.jpg.png" alt="Foto di Fabiano Cacioli">
+            </div>
+        </div>
+
+    </main>
+
+    <section class="sezione-about" id="about">
+        <h2>About Me</h2>
+        <p>
+            Nato a Roma nel 2003, mi sono laureato alla triennale in Economics and Big Data. Subito dopo, ho capito che volevo andare più a fondo nell'informatica e ho deciso di iscrivermi alla magistrale in Computer Engineering and Artificial Intelligence.
+        </p>
+        <p>
+            Non è stato un passaggio facile. Oltre al salto tecnico, l'ostacolo più grande all'inizio è stato l'inglese, dato che il corso è interamente in lingua e io partivo da una base molto scolastica. Invece di mollare, mi sono messo sotto. Oggi quell'ostacolo è superato e riesco a seguire e lavorare sui progetti senza problemi.
+        </p>
+        <p>
+            Il mio approccio di fronte alle cose che non conosco è molto pratico. Mi ritrovo molto in una frase del film <i>La ricerca della felicità</i>: "Se non so una cosa, alzo la mano, ascolto e imparo". Del mio percorso in economia ho mantenuto un'ottima confidenza con la statistica, che mi aiuta molto ora che studio ingegneria.
+        </p>
+        <p>
+            Attualmente, il campo che mi interessa di più e in cui vorrei lavorare è la Cybersecurity.
+        </p>
+        <p>
+            Quando lavoro a un progetto con altre persone, preferisco la praticità: non credo nei ruoli rigidi, ci si siede insieme, si guarda dove ci si è bloccati e si risolve il problema.
+        </p>
+        <p>
+            Fuori dall'università, lo sport è da sempre una parte essenziale della mia vita. Ho giocato a calcio fin da bambino (avendo anche l'opportunità di indossare la maglia della Lazio, la mia squadra del cuore) e continuo ad allenarmi con costanza. È una cosa che mi ha insegnato l'impegno quotidiano, una dote che oggi applico anche quando mi siedo davanti al computer a scrivere codice.
+        </p>
+    </section>
+
+    <section class="sezione-timeline">
+        <div class="linea-timeline">
+            
+            <div class="tappa-timeline">
+                <span class="data-timeline">Ott 2022 - Lug 2025</span>
+                <h3 class="titolo-timeline">BSc in Economics and Big Data</h3>
+                <p class="testo-timeline">Università degli Studi Roma Tre. La costruzione di una solida base analitica e statistica, l'incontro con i dati e la decisione di puntare all'informatica pura per capirne davvero i meccanismi.</p>
+            </div>
+
+            <div class="tappa-timeline">
+                <span class="data-timeline">Ott 2025 - Presente</span>
+                <h3 class="titolo-timeline">MSc in Computer Engineering and AI</h3>
+                <p class="testo-timeline">Sapienza Università di Roma. Il grande salto interamente in inglese.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="sezione-progetti" id="progetti">
+        <h2>Alcuni Progetti</h2>
+        
+        <div class="griglia-progetti">
+            
+            <div class="card-progetto">
+                <div class="card-icona">&lt;/&gt;</div>
+                <h3>Applied Cryptography</h3>
+                <p>Implementazione e benchmarking di cifrari simmetrici e schemi di crittografia autenticata (AES-GCM, ChaCha20-Poly1305). Sviluppo di un protocollo commit-reveal sicuro tramite socket TCP.</p>
+                <div class="card-tags">
+                    <span>C++</span>
+                    <span>Python</span>
+                    <span>OpenSSL</span>
+                </div>
+                <a href="https://github.com/fccacioli" target="_blank" class="card-link">Guarda il Codice →</a>
+            </div>
+
+            <div class="card-progetto">
+                <div class="card-icona">&lt;/&gt;</div>
+                <h3>ML: Dimensionality Reduction</h3>
+                <p>Confronto tra PCA e autoencoders su task multipli (clustering, regressione, classificazione). Modello CNN addestrato con precisione dell'89.5% su Fashion-MNIST bilanciando trade-off computazionali.</p>
+                <div class="card-tags">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>Scikit-Learn</span>
+                </div>
+                <a href="https://github.com/fccacioli" target="_blank" class="card-link">Guarda il Codice →</a>
+            </div>
+
+            <div class="card-progetto">
+                <div class="card-icona">&lt;/&gt;</div>
+                <h3>Seismic Event Detection</h3>
+                <p>Applicazione Full-Stack sviluppata durante un Hackathon per rilevare e segnalare eventi sismici. Integrazione completa tra frontend e backend per un servizio in tempo reale.</p>
+                <div class="card-tags">
+                    <span>JavaScript</span>
+                    <span>Full-Stack</span>
+                    <span>API</span>
+                </div>
+                <a href="https://github.com/fccacioli" target="_blank" class="card-link">Guarda il Codice →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="sezione-contatti" id="contatti">
+        <span class="etichetta-contatti">02.</span>
+        
+        <h2>Mettiamoci in contatto</h2>
+        
+        <p>Attualmente sono alla ricerca di nuove opportunità per mettermi alla prova. Che tu abbia una domanda, una proposta di collaborazione o voglia semplicemente dire ciao, la mia inbox è sempre aperta!</p>
+        
+        <a href="mailto:caciolifabiano12@gmail.com" class="btn-primario">Scrivimi un'email</a>
+    </section>
+
+</body>
+</html>
